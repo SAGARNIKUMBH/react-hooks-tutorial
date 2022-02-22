@@ -1,4 +1,6 @@
+import react from "react";
 import "./App.css";
+import ContextComponentC from "./Components/ContextComponentC";
 import CounterOne from "./Components/CounterOne";
 import CounterThree from "./Components/CounterThree";
 import CounterTwo from "./Components/CounterTwo";
@@ -18,10 +20,19 @@ import MouseContainer from "./Components/MouseContainer";
 import ParentComponent from "./Components/parentComponent";
 import UserFrom from "./Components/UserFrom";
 
+export const UserContext = react.createContext();
+export const ChannelContext = react.createContext();
+
 function App() {
   return (
     <div className="App">
-      <UserFrom />
+      <UserContext.Provider value={"Sunny"}>
+        <ChannelContext.Provider value={"Weoto Tech.Pvt.Ltd."}>
+          <ContextComponentC />
+        </ChannelContext.Provider>
+      </UserContext.Provider>
+
+      {/* <UserFrom /> */}
       {/* <HookTimer /> */}
       {/* <FocusInput /> */}
       {/* <ParentComponent /> */}
